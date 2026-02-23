@@ -1,53 +1,71 @@
-import { useEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CartProvider } from "@/contexts/CartContext";
+import { Toaster } from "@/components/ui/sonner";
+import Navbar from "@/components/Navbar";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import LandingPage from "@/pages/LandingPage";
+import AuthPage from "@/pages/AuthPage";
+import AuthCallback from "@/pages/AuthCallback";
+import ConsumerDashboard from "@/pages/ConsumerDashboard";
+import MedicineDetail from "@/pages/MedicineDetail";
+import CartPage from "@/pages/CartPage";
+import OrdersPage from "@/pages/OrdersPage";
+import PharmacyDashboard from "@/pages/PharmacyDashboard";
+import PharmacyOrders from "@/pages/PharmacyOrders";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+function AppRouter() {
+  const location = useLocation();
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
+  // CRITICAL: Detect session_id in hash synchronously before routes render
+  if (location.hash?.includes("session_id=")) {
+    return <AuthCallback />;
+  }
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/dashboard" element={
+          <ProtectedRoute requiredRole="consumer"><ConsumerDashboard /></ProtectedRoute>
+        } />
+        <Route path="/medicine/:id" element={
+          <ProtectedRoute requiredRole="consumer"><MedicineDetail /></ProtectedRoute>
+        } />
+        <Route path="/cart" element={
+          <ProtectedRoute requiredRole="consumer"><CartPage /></ProtectedRoute>
+        } />
+        <Route path="/orders" element={
+          <ProtectedRoute requiredRole="consumer"><OrdersPage /></ProtectedRoute>
+        } />
+        <Route path="/pharmacy" element={
+          <ProtectedRoute requiredRole="pharmacy_owner"><PharmacyDashboard /></ProtectedRoute>
+        } />
+        <Route path="/pharmacy/orders" element={
+          <ProtectedRoute requiredRole="pharmacy_owner"><PharmacyOrders /></ProtectedRoute>
+        } />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   );
-};
+}
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <LanguageProvider>
+          <CartProvider>
+            <AppRouter />
+            <Toaster richColors position="top-right" />
+          </CartProvider>
+        </LanguageProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
