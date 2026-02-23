@@ -1,0 +1,167 @@
+{
+  "identity": {
+    "name": "E1",
+    "persona": "The Anti-AI Designer",
+    "mission": "Create a trustworthy, human-centric pharmacy marketplace that blends Swiss medical precision with local community warmth.",
+    "principles": [
+      "Fusion: Swiss Typography + Organic Textures + Digital Efficiency",
+      "Emotion: Trust, Clarity, Empathy",
+      "Content First: Medicine info must be readable and accessible",
+      "Negative Space: Generous breathing room for clarity",
+      "Contrast: High contrast for accessibility and hierarchy"
+    ]
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Outfit, sans-serif",
+      "body": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl md:text-6xl font-bold tracking-tight",
+      "h2": "text-3xl md:text-5xl font-semibold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium",
+      "body_lg": "text-lg md:text-xl leading-relaxed",
+      "body_base": "text-base leading-relaxed",
+      "caption": "text-sm text-muted-foreground uppercase tracking-wider"
+    },
+    "rules": "Headings must use 'Outfit' with tight tracking. Body text uses 'Inter' for maximum legibility. Use large, bold numbers for prices and dosage."
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#064e3b",
+        "foreground": "#ecfdf5",
+        "name": "Emerald 900"
+      },
+      "secondary": {
+        "DEFAULT": "#ecfdf5",
+        "foreground": "#064e3b",
+        "name": "Emerald 50"
+      },
+      "accent": {
+        "DEFAULT": "#f43f5e",
+        "foreground": "#ffffff",
+        "name": "Rose 500"
+      },
+      "background": "#fafaf9",
+      "surface": "#ffffff",
+      "text": {
+        "primary": "#1e293b",
+        "secondary": "#64748b",
+        "muted": "#94a3b8"
+      }
+    },
+    "theme": "light",
+    "rules": "Primary Emerald for trust/pharmacy. Accent Rose for urgent actions (Buy, Alerts). Background is Stone-50 (Bone) for a warm, non-sterile feel. No gradients on text. High contrast is mandatory."
+  },
+  "layout": {
+    "spacing_scale": ["0", "1", "2", "4", "6", "8", "12", "16", "24", "32", "48", "64"],
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "grid_system": {
+      "dashboard": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+      "marketing": "grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12",
+      "bento": "grid grid-cols-1 md:grid-cols-4 auto-rows-[minmax(180px,auto)] gap-4"
+    },
+    "strategies": {
+      "dashboard": "Dense, information-rich but breathable. Use cards with subtle borders.",
+      "marketing": "Asymmetric, storytelling-focused. Use 'Tetris' grid for visual interest.",
+      "mobile": "Single column, touch-friendly targets (min 44px)."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-3 font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+      "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full px-6 py-2 font-medium transition-colors",
+      "outline": "border-2 border-primary text-primary hover:bg-primary/5 rounded-full px-6 py-2 font-medium transition-colors",
+      "ghost": "hover:bg-muted text-foreground rounded-lg px-4 py-2 transition-colors"
+    },
+    "cards": {
+      "base": "bg-white rounded-xl border border-border/40 shadow-sm hover:shadow-md transition-shadow p-6",
+      "interactive": "cursor-pointer hover:border-primary/50 hover:shadow-lg transition-all duration-300 group"
+    },
+    "inputs": {
+      "base": "flex h-12 w-full rounded-lg border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+    },
+    "usage_rules": [
+      "Use Shadcn components for complex interactions (Dialog, Datepicker, Select).",
+      "Customize Shadcn components to match the 'Warm Medical' aesthetic (rounded-xl, stone colors).",
+      "Do NOT use default 'slate' grays; tint them warm.",
+      "All interactive elements must have `data-testid`."
+    ]
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "soft": "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
+      "card": "0 0 0 1px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.04)",
+      "float": "0 20px 40px -4px rgba(0, 0, 0, 0.1)"
+    },
+    "radius": {
+      "sm": "0.375rem",
+      "md": "0.5rem",
+      "lg": "0.75rem",
+      "xl": "1rem",
+      "full": "9999px"
+    },
+    "textures": {
+      "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E\")"
+    }
+  },
+  "assets": {
+    "images": {
+      "pharmacist": {
+        "url": "https://images.pexels.com/photos/14797854/pexels-photo-14797854.jpeg",
+        "alt": "Friendly pharmacist in a modern pharmacy setting",
+        "category": "hero"
+      },
+      "delivery": {
+        "url": "https://images.pexels.com/photos/4393245/pexels-photo-4393245.jpeg",
+        "alt": "Delivery rider on a scooter",
+        "category": "logistics"
+      },
+      "family": {
+        "url": "https://images.unsplash.com/photo-1767082090422-2e5aeeba2afe",
+        "alt": "Happy family running in a park",
+        "category": "lifestyle"
+      },
+      "medicine_generic": {
+        "url": "https://images.pexels.com/photos/8015823/pexels-photo-8015823.jpeg",
+        "alt": "Clean generic medicine pills",
+        "category": "product"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px, rounded caps"
+    }
+  },
+  "motion": {
+    "libraries": ["framer-motion", "sonner"],
+    "transitions": {
+      "default": "transition-all duration-200 ease-out",
+      "page": "initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}"
+    },
+    "micro_interactions": {
+      "button_hover": "scale-[1.02]",
+      "card_hover": "y-[-4px]"
+    }
+  },
+  "accessibility": {
+    "standards": "WCAG 2.1 AA",
+    "requirements": [
+      "Text contrast > 4.5:1",
+      "Focus rings visible on all interactive elements",
+      "ARIA labels for all icon buttons",
+      "Prefers-reduced-motion support"
+    ]
+  },
+  "universal_guidelines": [
+    "Do NOT use generic centered layouts. Use asymmetry.",
+    "Do NOT use gradients on text.",
+    "Use 2-3x more spacing than typical.",
+    "Every interaction needs feedback (hover, click, load).",
+    "Use 'sonner' for all toast notifications.",
+    "Ensure mobile responsiveness for all pages."
+  ],
+  "instructions_to_main_agent": "Implement the 'Modern Apothecary' theme. Use the provided images for the landing page and demo data. Follow the color palette strictly - Emerald Green for trust, Rose for alerts. Use the 'Outfit' font for headings to give it a modern, friendly character. Ensure the Pharmacy Dashboard is dense but readable, while the Consumer side is spacious and guiding."
+}
