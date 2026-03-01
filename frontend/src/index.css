@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,49 +6,45 @@
 
 @layer base {
   :root {
-    --background: 60 5% 98%;
-    --foreground: 217 33% 17%;
+    --background: 47 100% 99%;
+    --foreground: 240 28% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 217 33% 17%;
+    --card-foreground: 240 28% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 217 33% 17%;
-    --primary: 164 86% 16%;
-    --primary-foreground: 152 76% 96%;
-    --secondary: 152 76% 96%;
-    --secondary-foreground: 164 86% 16%;
-    --muted: 60 5% 95%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 350 89% 60%;
-    --accent-foreground: 0 0% 100%;
+    --popover-foreground: 240 28% 14%;
+    --primary: 180 92% 30%;
+    --primary-foreground: 180 50% 97%;
+    --secondary: 45 87% 58%;
+    --secondary-foreground: 45 90% 10%;
+    --muted: 47 30% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 45 87% 58%;
+    --accent-foreground: 45 90% 10%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 10% 90%;
-    --input: 40 10% 90%;
-    --ring: 164 86% 16%;
+    --border: 47 20% 91%;
+    --input: 47 20% 91%;
+    --ring: 180 92% 30%;
     --radius: 0.75rem;
-    --chart-1: 164 86% 16%;
-    --chart-2: 350 89% 60%;
-    --chart-3: 215 16% 47%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 152 76% 96%;
+    --chart-1: 180 92% 30%;
+    --chart-2: 45 87% 58%;
+    --chart-3: 220 9% 46%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 150 60% 40%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 }
 
 @layer base {
-  [data-debug-wrapper="true"] {
-    display: contents !important;
-  }
+  [data-debug-wrapper="true"] { display: contents !important; }
 }
