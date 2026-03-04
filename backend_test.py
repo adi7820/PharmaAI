@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 
 class MedConnectAPITester:
-    def __init__(self, base_url="https://rx-transparency.preview.emergentagent.com"):
+    def __init__(self, base_url="https://medicine-finder-12.preview.emergentagent.com"):
         self.base_url = base_url
         self.token = None
         self.tests_run = 0
