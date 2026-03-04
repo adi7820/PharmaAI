@@ -80,11 +80,12 @@ export default function PharmacyDashboard() {
       await api.post("/inventory", {
         medicine_id: addForm.medicine_id,
         brand_name: addForm.brand_name,
-        price: parseFloat(addForm.price),
+        mrp: parseFloat(addForm.mrp),
+        selling_price: parseFloat(addForm.selling_price),
         stock_quantity: parseInt(addForm.stock_quantity),
       });
       setShowAddDialog(false);
-      setAddForm({ medicine_id: "", brand_name: "", price: "", stock_quantity: "" });
+      setAddForm({ medicine_id: "", brand_name: "", mrp: "", selling_price: "", stock_quantity: "" });
       const invRes = await api.get(`/inventory/${pharmacy.pharmacy_id}`);
       setInventory(invRes.data);
       toast.success("Item added!");
