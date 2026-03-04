@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Loader2, Plus, Trash2, Package, Edit, Store, Pill } from "lucide-react";
 import { toast } from "sonner";
+import { getErrorMessage } from "@/lib/utils";
 
 export default function PharmacyDashboard() {
   const { api } = useAuth();
@@ -69,7 +70,7 @@ export default function PharmacyDashboard() {
       setShowSetup(false);
       toast.success("Pharmacy created!");
     } catch (err) {
-      toast.error(err.response?.data?.detail || "Failed to create pharmacy");
+      toast.error(getErrorMessage(err, "Failed to create pharmacy"));
     }
   };
 
@@ -88,7 +89,7 @@ export default function PharmacyDashboard() {
       setInventory(invRes.data);
       toast.success("Item added!");
     } catch (err) {
-      toast.error(err.response?.data?.detail || "Failed to add item");
+      toast.error(getErrorMessage(err, "Failed to add item"));
     }
   };
 
