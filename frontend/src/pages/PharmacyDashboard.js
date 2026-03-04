@@ -232,13 +232,17 @@ export default function PharmacyDashboard() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label>{t("medicine.price")} (Rs.)</Label>
-                      <Input type="number" step="0.01" value={addForm.price} onChange={(e) => setAddForm({ ...addForm, price: e.target.value })} required data-testid="add-price-input" />
+                      <Label>{t("pharmacy.mrp")} (Rs.)</Label>
+                      <Input type="number" step="0.01" value={addForm.mrp} onChange={(e) => setAddForm({ ...addForm, mrp: e.target.value })} required data-testid="add-mrp-input" />
                     </div>
                     <div>
-                      <Label>{t("medicine.stock")}</Label>
-                      <Input type="number" value={addForm.stock_quantity} onChange={(e) => setAddForm({ ...addForm, stock_quantity: e.target.value })} required data-testid="add-stock-input" />
+                      <Label>{t("pharmacy.selling_price")} (Rs.)</Label>
+                      <Input type="number" step="0.01" value={addForm.selling_price} onChange={(e) => setAddForm({ ...addForm, selling_price: e.target.value })} required data-testid="add-price-input" />
                     </div>
+                  </div>
+                  <div>
+                    <Label>{t("medicine.stock")}</Label>
+                    <Input type="number" value={addForm.stock_quantity} onChange={(e) => setAddForm({ ...addForm, stock_quantity: e.target.value })} required data-testid="add-stock-input" />
                   </div>
                   <Button type="submit" className="w-full bg-primary text-primary-foreground rounded-full" data-testid="save-inventory-btn">
                     {t("pharmacy.save")}
