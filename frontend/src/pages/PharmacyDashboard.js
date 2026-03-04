@@ -97,7 +97,7 @@ export default function PharmacyDashboard() {
   const handleUpdateInventory = async (inventoryId) => {
     try {
       await api.put(`/inventory/${inventoryId}`, {
-        price: parseFloat(editForm.price),
+        selling_price: parseFloat(editForm.selling_price),
         stock_quantity: parseInt(editForm.stock_quantity),
       });
       setEditingId(null);
