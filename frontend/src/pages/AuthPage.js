@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Pill, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { getErrorMessage } from "@/lib/utils";
 
 export default function AuthPage() {
   const { user, login, register } = useAuth();
@@ -32,7 +33,7 @@ export default function AuthPage() {
       const u = await login(form.email, form.password);
       navigate(u.role === "consumer" ? "/dashboard" : "/pharmacy");
     } catch (err) {
-      toast.error(err.response?.data?.detail || "Login failed");
+      toast.error(getErrorMessage(err, "Login failed"));
     } finally {
       setLoading(false);
     }
@@ -45,7 +46,7 @@ export default function AuthPage() {
       const u = await register(form.email, form.password, form.name, form.role);
       navigate(u.role === "consumer" ? "/dashboard" : "/pharmacy");
     } catch (err) {
-      toast.error(err.response?.data?.detail || "Registration failed");
+      toast.error(getErrorMessage(err, "Registration failed"));
     } finally {
       setLoading(false);
     }
