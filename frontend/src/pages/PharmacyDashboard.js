@@ -276,10 +276,10 @@ export default function PharmacyDashboard() {
                         <TableCell>{item.brand_name}</TableCell>
                         <TableCell>
                           {editingId === item.inventory_id ? (
-                            <Input type="number" step="0.01" className="w-20 h-8" value={editForm.price}
-                              onChange={(e) => setEditForm({ ...editForm, price: e.target.value })} />
+                            <Input type="number" step="0.01" className="w-20 h-8" value={editForm.selling_price}
+                              onChange={(e) => setEditForm({ ...editForm, selling_price: e.target.value })} />
                           ) : (
-                            <span className="font-heading font-bold">Rs.{item.price?.toFixed(2)}</span>
+                            <span className="font-heading font-bold">Rs.{(item.selling_price || item.price)?.toFixed(2)}</span>
                           )}
                         </TableCell>
                         <TableCell>
@@ -302,7 +302,7 @@ export default function PharmacyDashboard() {
                           ) : (
                             <div className="flex gap-1 justify-end">
                               <Button size="icon" variant="ghost" className="h-8 w-8"
-                                onClick={() => { setEditingId(item.inventory_id); setEditForm({ price: item.price, stock_quantity: item.stock_quantity }); }}
+                                onClick={() => { setEditingId(item.inventory_id); setEditForm({ selling_price: item.selling_price || item.price, stock_quantity: item.stock_quantity }); }}
                                 data-testid={`edit-inventory-${item.inventory_id}`}>
                                 <Edit className="h-4 w-4" />
                               </Button>
