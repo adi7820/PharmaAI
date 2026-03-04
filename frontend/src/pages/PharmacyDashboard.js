@@ -29,9 +29,9 @@ export default function PharmacyDashboard() {
   const [showAddDialog, setShowAddDialog] = useState(false);
 
   const [setupForm, setSetupForm] = useState({ name: "", address: "", phone: "" });
-  const [addForm, setAddForm] = useState({ medicine_id: "", brand_name: "", price: "", stock_quantity: "" });
+  const [addForm, setAddForm] = useState({ medicine_id: "", brand_name: "", mrp: "", selling_price: "", stock_quantity: "" });
   const [editingId, setEditingId] = useState(null);
-  const [editForm, setEditForm] = useState({ price: "", stock_quantity: "" });
+  const [editForm, setEditForm] = useState({ selling_price: "", stock_quantity: "" });
 
   const fetchPharmacy = useCallback(async () => {
     try {
